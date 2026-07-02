@@ -56,4 +56,14 @@ SElECT title FROM movies WHERE genre LIKE '%Comedy%';
 
 -- find the top 3 highest-rated titles (Vote_Average) for each Original_Language. 
 -- Filter out languages that have fewer than 5 total titles to keep the results clean.
+WITH ranks AS(
+SELECT title,vote_average,original_language, ROW_NUMBER() OVER (PARTITION BY original_language ORDER BY vote_average) AS rank_no
+FROM movies
+)
+
+SELECT title,vote_average,original_language from ranks WHERE rank_no <= 3;
+
+
+
+
 
