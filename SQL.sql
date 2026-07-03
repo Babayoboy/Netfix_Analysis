@@ -1,5 +1,5 @@
 SELECT * FROM movies;
-
+SELECT * FROM genre;
 -- Top 5 most popular Movies/TV Shows
 SELECT title, popularity, vote_average, vote_count 
 FROM movies 
@@ -52,7 +52,7 @@ SELECT  title From movies
 WHERE comedy = 'Yes';
 
 -- Or
-SElECT title FROM movies WHERE genre LIKE '%Comedy%';
+SElECT title FROM genre WHERE genre LIKE '%Comedy%';
 
 -- find the top 3 highest-rated titles (Vote_Average) for each Original_Language. 
 -- Filter out languages that have fewer than 5 total titles to keep the results clean.
